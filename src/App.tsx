@@ -1,12 +1,12 @@
 import Message from "./assets/message";
+import Alert from "./components/Alert";
 import ListGroup from "./components/ListGroup";
 
-function App() {
+/* function App() {
   let items = ["Guatemala", "Panama", "Costa Rica", "Mexico", "Argentina"];
 
   const handleSelectItem = (item: string) => {
     console.log(item);
-  };
 
   return (
     //<div><Message /></div>
@@ -16,6 +16,17 @@ function App() {
         heading="Cities"
         onSelectItem={handleSelectItem}
       />
+    </div>
+  );
+}
+} */
+
+function App() {
+  return (
+    <div>
+      <Alert>
+        Watch <span>out!</span>
+      </Alert>
     </div>
   );
 }
