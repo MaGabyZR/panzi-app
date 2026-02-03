@@ -1,7 +1,12 @@
 import { MouseEvent, useState } from "react";
 
-function ListGroup() {
-  let items = ["Guatemala", "Panama", "Costa Rica", "Mexico", "Argentina"];
+//Define the shape or interface of the component to pass as a Prop. { items: [], heading: string}, to avoid hardcoding.
+interface Props {
+  items: string[];
+  heading: string;
+}
+
+function ListGroup({ items, heading }: Props) {
   //State hook, to tell React that this component can have data or state that will change over time.
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
@@ -10,7 +15,7 @@ function ListGroup() {
 
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {items.length === 0 && <p>No items found!</p>}
       <ul className="list-group">
         {items.map((item, index) => (
