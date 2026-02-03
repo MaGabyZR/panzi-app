@@ -4,9 +4,11 @@ import { MouseEvent, useState } from "react";
 interface Props {
   items: string[];
   heading: string;
+  //Define the signature of the function to notify App.tsx that an item is selected.
+  onSelectItem: (item: string) => void;
 }
 
-function ListGroup({ items, heading }: Props) {
+function ListGroup({ items, heading, onSelectItem }: Props) {
   //State hook, to tell React that this component can have data or state that will change over time.
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
@@ -28,6 +30,7 @@ function ListGroup({ items, heading }: Props) {
             key={item}
             onClick={() => {
               setSelectedIndex(index);
+              onSelectItem(item);
             }}
           >
             {item}
