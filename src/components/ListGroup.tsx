@@ -1,10 +1,12 @@
-import { MouseEvent } from "react";
+import { MouseEvent, useState } from "react";
 
 function ListGroup() {
   let items = ["Guatemala", "Panama", "Costa Rica", "Mexico", "Argentina"];
+  //State hook, to tell React that this component can have data or state that will change over time.
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
-  //Event handler.
-  const handleClick = (event: MouseEvent) => console.log(event);
+  //Event handler.Replaced by selectedIndex to handle the onClick event.
+  //const handleClick = (event: MouseEvent) => console.log(event);
 
   return (
     <>
@@ -12,7 +14,17 @@ function ListGroup() {
       {items.length === 0 && <p>No items found!</p>}
       <ul className="list-group">
         {items.map((item, index) => (
-          <li className="list-group-item" key={item} onClick={handleClick}>
+          <li
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            key={item}
+            onClick={() => {
+              setSelectedIndex(index);
+            }}
+          >
             {item}
           </li>
         ))}
