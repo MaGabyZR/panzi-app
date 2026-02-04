@@ -25,19 +25,20 @@ import Like from "./components/Like/Like";
 }
 } */
 
-function App() {
+//Exercices and examples.
+/* function App() {
   const [alertVisible, setAlertVisibility] = useState(false);
 
   /*   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState(""); */ //Replaced by the person object bellow, for best practice.
-  const [person, setPerson] = useState({
+/*   const [person, setPerson] = useState({
     firstName: "",
     lastName: "",
-  });
+  }); */
 
-  //const fullName = firstName + "" + lastName;
+//const fullName = firstName + "" + lastName;
 
-  const [isLoading, setLoading] = useState(false);
+/*   const [isLoading, setLoading] = useState(false);
 
   return (
     <div>
@@ -52,6 +53,34 @@ function App() {
       <Message />
       <Message />
       <Message />
+    </div>
+  ); */
+
+//Updating Arrays, do not mutate nor change them.
+function App() {
+  /*   const [tags, setTags] = useState(["happy", "cheerful"]);
+
+  const handleClick = () => {
+    //Add a new item to the array
+    setTags([...tags, "exciting"]);
+    //Remove an item
+    setTags(tags.filter((tag) => tag! == "happy"));
+    //Update an item.
+    setTags(tags.map((tag) => (tag === "happy" ? "happiness" : tag)));
+  }; */
+
+  const [bugs, setBugs] = useState([
+    { id: 1, tittle: "Bug 1", fixed: false },
+    { id: 2, tittle: "Bug 2", fixed: false },
+  ]);
+
+  const handleClick = () => {
+    setBugs(bugs.map((bug) => (bug.id === 1 ? { ...bug, fixed: true } : bug)));
+  };
+
+  return (
+    <div>
+      <button onClick={handleClick}>Click Me</button>
     </div>
   );
 }
