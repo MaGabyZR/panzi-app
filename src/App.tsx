@@ -1,5 +1,6 @@
 import Message from "./assets/message";
 import Alert from "./components/Alert";
+import Button from "./components/Button";
 import ListGroup from "./components/ListGroup";
 
 /* function App() {
@@ -24,9 +25,12 @@ import ListGroup from "./components/ListGroup";
 function App() {
   return (
     <div>
-      <Alert>
+      {/*       <Alert>
         Watch <span>out!</span>
-      </Alert>
+      </Alert> */}
+      <Button color="secondary" onClick={() => console.log("Clicked")}>
+        My Button
+      </Button>
     </div>
   );
 }
