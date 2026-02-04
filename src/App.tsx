@@ -2,7 +2,8 @@ import { useState } from "react";
 import Message from "./assets/message";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
-import ListGroup from "./components/ListGroup";
+import ListGroup from "./components/ListGroup/ListGroup";
+import { FaCalendar } from "react-icons/fa";
 
 /* function App() {
   let items = ["Guatemala", "Panama", "Costa Rica", "Mexico", "Argentina"];
@@ -34,6 +35,7 @@ function App() {
       <Button color="secondary" onClick={() => setAlertVisibility(true)}>
         My Button
       </Button>
+      <FaCalendar color="purple" size={40} />
     </div>
   );
 }
