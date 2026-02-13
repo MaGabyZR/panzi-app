@@ -6,6 +6,8 @@ import ListGroup from "./components/ListGroup/ListGroup";
 import { FaCalendar } from "react-icons/fa";
 import Like from "./components/Like/Like";
 import produce from "immer";
+import NavBar from "./components/NavBar";
+import Cart from "./components/Cart";
 
 /* function App() {
   let items = ["Guatemala", "Panama", "Costa Rica", "Mexico", "Argentina"];
@@ -70,14 +72,15 @@ function App() {
     setTags(tags.map((tag) => (tag === "happy" ? "happiness" : tag)));
   }; */
 
-  const [bugs, setBugs] = useState([
+  //Create buttond and handle click events.
+  /* const [bugs, setBugs] = useState([
     { id: 1, tittle: "Bug 1", fixed: false },
     { id: 2, tittle: "Bug 2", fixed: false },
-  ]);
+  ]); */
 
-  const handleClick = () => {
-    //setBugs(bugs.map((bug) => (bug.id === 1 ? { ...bug, fixed: true } : bug))); //replaced using immer bellow. Draft records the changes we will apply.
-    setBugs(
+  //const handleClick = () => {
+  //setBugs(bugs.map((bug) => (bug.id === 1 ? { ...bug, fixed: true } : bug))); //replaced using immer bellow. Draft records the changes we will apply.
+  /* setBugs(
       produce((draft) => {
         const bug = draft.find((bug) => bug.id === 1);
         if (bug) bug.fixed = true;
@@ -95,6 +98,15 @@ function App() {
       <button onClick={handleClick}>Click Me</button>
     </div>
   );
-}
+} */
 
+  //Example ecommerce app, to share state
+  const [cartItems, setCartItems] = useState(["Product1", "Product2"]); //share state and pass to the children as Props (Cart.tsx and NavBar.tsx) Here is where we mantain the state.
+  return (
+    <div>
+      <NavBar cartItemsCount={cartItems.length} />
+      <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
+    </div>
+  );
+}
 export default App;
